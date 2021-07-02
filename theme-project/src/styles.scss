@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "./assets/Themes/variable.scss";
+@import "./assets/Themes/custom-theme/custom.scss";
+@import "~@angular/material/theming";
+@import "./assets/Themes/material-theme/material.scss";
+
+/* Importing Bootstrap SCSS file. 
+// */ //  @import '~bootstrap/scss/bootstrap';
+@import "./assets/Themes/bootstrap-theme/bootstrap.scss";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

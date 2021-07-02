@@ -1,0 +1,40 @@
+<nav>
+    <div class="list-wrapper">
+        <div class="link-wrapper">
+            <div class="nav-header">
+                <i class="fas fa-rocket"></i>
+                <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+               </button>
+            </div>
+            <div><a href="">Home</a></div>
+            <div><a href="">Services</a></div>
+            <div><a href="">Portfolio</a></div>
+        </div>
+        <div class="link-wrapper">
+            <div>
+                <a href=""><i class="fas fa-envelope" style="display: inline"></i
+          >&nbsp;Contact</a
+        >
+      </div>
+      <!-- <div>
+        <a href=""
+          ><i class="fas fa-cog" style="display: inline"></i>&nbsp;Settings</a
+        >
+      </div> -->
+      <div style="display: flex; flex-direction: row;">
+        <a>
+          <i class="fas fa-moon" (click)="themeChange()"></i>
+        </a>
+                 <select name="" id="theme" (change)="themeStyle($event.target.value)">
+          
+          <option value="custom">Custom</option>
+          <option value="bootstrap">Bootstrap</option>
+          <option value="material">Material</option>
+
+        </select> 
+
+            </div>
+        </div>
+    </div>
+</nav>

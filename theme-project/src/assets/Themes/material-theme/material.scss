@@ -1,0 +1,12 @@
+// @import "~@angular/material/theming";
+
+body[theme="material-dark"] {
+  --header-background: #{mat-color(mat-palette($mat-teal, 500))};
+  --footer-background: #{mat-color(mat-palette($mat-teal))};
+  --btn-background: #{mat-color(mat-palette($mat-blue-gray))};
+  --banner-background: #{mat-color(mat-palette($mat-gray))};
+  --moon: $light-primary-text;
+  --text-clr: $light-primary-text;
+  --section3-background: #{mat-color(mat-palette($mat-gray))};
+  --icon-clr: #{mat-color(mat-palette($mat-teal))};
+}

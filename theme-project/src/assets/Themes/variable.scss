@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com./css?family=Open+Sans|Roboto:400,700&display=swap");
+:root {
+    --clr-yellow-light: hsl(405, 89%, 70%);
+    --clr-yellow-lighter: hsl(405, 90%, 76%);
+    --clr-gray-100: rgb(233, 233, 233);
+    --clr-gray-200: rgb(240, 240, 240);
+    --clr-dark-gray: rgb(85, 85, 85);
+    --clr-gray-cloud: rgb(54, 69, 79);
+    --clr-granite-gray: rgb(59, 58, 58);
+    --clr-black: #222;
+    --clr-white: #fff;
+    /*******************************************************/
+    /************** custom variables ************ */
+    --banner-background: var(--clr-gray-100);
+    --footer-background: var(--clr-yellow-light);
+    --header-background: var(--clr-yellow-light);
+    --btn-background: var(--clr-yellow-light);
+    --section3-background: var( --clr-gray-200);
+    --icon-clr: var(--clr-yellow-lighter);
+    --link-clr: var(--clr-white);
+    --moon: var(--clr-black);
+    --text-clr: var(--clr-black);
+    --section2-background: var(--clr-white);
+}

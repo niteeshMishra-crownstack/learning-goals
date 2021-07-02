@@ -1,0 +1,11 @@
+@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
+body[theme="bootstrap-dark"] {
+  --header-background: #{$secondary};
+  --footer-background: #{$secondary};
+  --btn-background: #{$secondary};
+  --banner-background: #{$info};
+  --moon: #{$light};
+  --text-clr: #{$white};
+  --section3-background: #{$info};
+  --icon-clr: #{$warning};
+}

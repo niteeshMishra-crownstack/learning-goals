@@ -1,0 +1,50 @@
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--header-background);
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--clr-white);
+}
+
+.fa-moon {
+    color: var(--moon);
+}
+
+// =============================================================================
+.list-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 50px;
+}
+
+.link-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    div {
+        display: block;
+        padding: 5%;
+        a {
+            padding: 2% 10%;
+        }
+    }
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.fa-old-republic {
+    font-size: 40px;
+    // color: var(--clr-white);
+}
