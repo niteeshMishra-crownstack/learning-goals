@@ -12,7 +12,7 @@
 
 
 */
-
+@use  "sass:color"; //imported color module of sass
 @import "./app/css/mixins";
 @import "./app/css/variable";
 
@@ -24,23 +24,23 @@
 
 nav
 {
-  height: 50px;
-  background: $nav-background;
-  display:flex;
-  justify-content: space-between;
-  padding: 10px;
-  color:#c8d6e5;
-  position:fixed;
-  width: 100%;
+  @extend %header-footer-section;
+  .brand
+  {
+    font-size: 18px;
+    font-weight: 400;
+      color: white;
+  }
 
-}
-
-nav div a 
-{
+  a 
+  {
   padding:  0 10px;
   color: white;
   margin: 10px;
+  font-size: 18px;
   text-decoration: none;
+  }
+
 }
 
 .main_header {
@@ -49,6 +49,25 @@ nav div a
   @include center_items;
 
   background: $bg-color;
+
+  button 
+  {
+
+    $primary-color:#404040;
+    color:$primary-color;
+    border: 1px solid color.scale($primary-color,$lightness:20%);
+  width:150px;
+  height:60px;
+  margin: 15px;
+  font-size:1.3em;
+  font-family:sans-serif;
+  // color:#ffffff;
+  outline:none;
+  background:darkgray;
+  border:none;
+  box-shadow: 0 1px 2px 1px cornflowerblue;
+  border-radius:10px;
+  }
 
   //giving css property using Nesting
   h1 {
@@ -72,26 +91,74 @@ nav div a
 }
 
 .item-1 {
-  background: rgb(76, 112, 100);
-  @include div-prop;
+  background: $black-100;
+  @extend %property-shared;
 }
 .item-2 {
-  background: rgb(49, 92, 77);
-  @include div-prop;
+  background:$black-200;
+   @extend %property-shared;
 }
 .item-3 {
-  background: rgb(20, 24, 23);
-  @include div-prop;
+  background:$black-300;
+   @extend %property-shared;
 }
 .item-4 {
-  background: rgb(127, 255, 138);
-  @include div-prop;
+  background:$black-400;
+   @extend %property-shared;
 }
 .item-5 {
-  background: rgb(5, 66, 46);
-  @include div-prop;
+  background: $black-500;
+   @extend %property-shared;
 }
 .item-6 {
-  background: rgb(255, 127, 212);
-  @include div-prop;
+  background: $black;
+   @extend %property-shared;
 }
+
+footer{
+    @extend %header-footer-section;
+    bottom:0;
+    margin-top:15px;
+    overflow-x: hidden;
+    font-weight: 400;
+    
+    div
+    {
+      color: #ffffff;
+    }
+
+    .icons>i 
+    {
+      font-size: 18px;
+      margin: 0 5px;
+      padding: 3px;
+    
+    }
+
+}
+
+
+
+%property-shared {
+  @include tile-position;
+  @include div-prop;
+  p 
+  {
+     @include content-position;
+     @include center_items; 
+  }
+}
+
+%header-footer-section
+{
+   height: 50px;
+  background: $nav-background;
+  display:flex;
+  justify-content: space-between;
+  padding: 10px;
+  color:#c8d6e5;
+  position:fixed;
+  width: 100%;
+}
+
+

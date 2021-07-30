@@ -10,6 +10,25 @@
   justify-content: center;
   flex-direction: column;
 }
+@mixin flex-property
+ {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   
+}
+
+@mixin content-position
+{
+   position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+@mixin tile-position
+{
+    position: relative;
+}
 
 @mixin text_format($para1) {
   // we can pass any number of parameter
