@@ -1,0 +1,39 @@
+.myButton
+{
+    color: white;
+    width: 100px;
+    height: 30px;
+    background-color: aqua;
+    
+}
+
+  ::ng-deep .main-button
+{
+    color: white;
+    background: blueviolet;
+}
+
+  .heading
+{
+    border: 2px solid green;
+}
+
+:host{
+    border: 2px solid dimgray;
+    display: block;
+    padding: 20px;
+}
+
+ :host ::ng-deep h1
+{
+    background: #f2f2f2;
+    color: brown;
+}
+
+::ng-deep .mat-card 
+{
+    padding: 30px;
+}
+
+
+
