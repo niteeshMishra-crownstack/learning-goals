@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/Themes/variable.scss";
+@import "./assets/Themes/custom-theme/custom.scss";
+@import "./assets/Themes/bootstrap-theme/bootstrap.scss";
+@import "./assets/Themes/material-theme/material.scss";
+
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

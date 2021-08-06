@@ -1,0 +1,20 @@
+ @import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
+body[theme="bootstrap-dark"] {
+
+  --light: #{$dark};
+  --dark: #{$light};
+  --acquamarine : #{$orange};
+  --cadetblue: #{$cyan};
+  --yellow-green: #{$danger};
+ 
+}
+body[theme="bootstrap-light"] {
+  --light: #{$light};
+--dark: #{$dark};
+--acquamarine:#{$info};
+ --cadetblue: #{$green};
+  --yellow-green: #{$pink};
+// --lime: #{$teal};
+// --orangeRed: #{$orange};
+
+}

@@ -1,0 +1,85 @@
+<nav class="navbar">
+    <a href="/" class="navbar__logo">SASS-THEME</a>
+    <div class="navbar__bars"><i class="fas fa-bars"></i></div>
+    <div class="navbar__menu">
+
+        <div class="theme-options">
+            <a (click)="showThemeOptions = !showThemeOptions" class="navbar__menu--links"><i
+                    class="fas fa-palette"></i>Theme</a>
+            <ul *ngIf="showThemeOptions">
+                <li>
+                    <span>Custom</span>
+                    <ul class="themeMode">
+                        <li (click)="themeChange('custom-light')">Light</li>
+                        <li (click)="themeChange('custom-dark')">Dark</li>
+                    </ul>
+                </li>
+                <li>
+                    <span>Bootstrap</span>
+                    <ul class="themeMode">
+                        <li (click)="themeChange('bootstrap-light')">Light</li>
+                        <li (click)="themeChange('bootstrap-dark')">Dark</li>
+                    </ul>
+                </li>
+                <li>
+                    <span>Material</span>
+                    <ul class="themeMode">
+                        <li (click)="themeChange('material-light')">Light</li>
+                        <li (click)="themeChange('material-dark')">Dark</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <a href="/" class="navbar__menu--links">Endpoints</a>
+        <a href="/" class="navbar__menu--links">Customers</a>
+        <a href="/" class="navbar__menu--links">Data Matrices</a>
+
+    </div>
+</nav>
+
+<div class="wrapper">
+    <div class="content-wrapper">
+        <section class="banner">
+            <div class="banner-content">
+                <h2>This is the landing page of this application</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit omnis aut inventore mollitia
+                    repellendus architecto consequatur esse accusantium dignissimos modi.olore animi soluta quo aliquam
+                    iure! Aspernatur eligendi quae qui in nulla
+                    corrupti optio libero totam tenetur illum. Nulla tempore iusto vitae corporis quis natus, pariatur
+                </p>
+                <button class="banner-btn">Started creating posts</button>
+            </div>
+        </section>
+    </div>
+    <div class="content-wrapper">
+        <section class="section2">
+            <div class="section2-outer-div">
+                <div class="badge" style="text-align: center; margin-top: 10px;">
+                    <i class="fas fa-medal"></i>
+
+                    <h2>This is the section2 of page</h2>
+
+
+                </div>
+                <div class=" section2-inner-div">
+                    <div class="section2-content">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque architecto laborum doloremque
+                            distinctio. Aperiam nihil dignissimos voluptates quod eaque natus beatae architecto maiores
+                            perferendis, veritatis atque omnis eveniet
+                            qui quis repudiandae explicabo, quaerat officiis, error dolore animi soluta quo aliquam
+                            iure! Aspernatur eligendi quae qui in nulla corrupti optio libero totam tenetur illum. Nulla
+                            tempore iusto vitae corporis quis natus, pariatur
+                        </p>
+                        <button class="learn-more-btn">Learn More</button>
+                    </div>
+                    <div class="section2-img">
+                        <img src="../assets/vector.jpeg" alt="section2 image" style="width: 100%;">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+</div>

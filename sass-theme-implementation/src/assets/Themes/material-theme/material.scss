@@ -1,0 +1,26 @@
+@import "~@angular/material/theming";
+
+
+// ===============================================================================
+
+body[theme="material-dark"] {
+
+    
+
+
+  --light:  #{mat-color(mat-palette($mat-grey, 900))};
+  --dark:  #{mat-color(mat-palette($mat-cyan, 100))};
+  --acquamarine: #{mat-color(mat-palette($mat-pink))};
+  --cadetblue: #{mat-color(mat-palette($mat-deep-orange))};
+  --yellow-green: #{mat-color(mat-palette($mat-indigo))};
+  
+
+}
+body[theme="material-light"] {
+     --light:  #{mat-color(mat-palette($mat-cyan, 900))};
+  --dark:  #{mat-color(mat-palette($mat-grey, 100))};
+   --acquamarine: #{mat-color(mat-palette($mat-light-green))};
+  --cadetblue: #{mat-color(mat-palette($mat-lime,100))};
+  --yellow-green: #{mat-color(mat-palette($mat-light-blue))};
+ 
+}

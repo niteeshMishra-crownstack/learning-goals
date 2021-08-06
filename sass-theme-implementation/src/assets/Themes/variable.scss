@@ -1,0 +1,41 @@
+:root {
+    --light: #f7f7f7;
+    --dark: #222121;
+    --acquamarine: #33ffba;
+      --cadetblue: #7fb1b3;
+       --yellow-green:#aed75b;
+
+    // --acquamarine-dark:#009966;
+  
+    // --cadetblue-dark: #395f60;
+    // --yellow-green-dark: #7ba428;
+   
+    --blue: #2541b2;
+    --bg-color: #f2f2f2;
+     --clr-yellow-light: hsl(405, 89%, 70%);
+    --clr-yellow-lighter: hsl(405, 90%, 76%);
+    --clr-gray-100: rgb(233, 233, 233);
+    --clr-gray-200: rgb(240, 240, 240);
+    --clr-dark-gray: rgb(85, 85, 85);
+    --clr-gray-cloud: rgb(54, 69, 79);
+    --clr-granite-gray: rgb(59, 58, 58);
+    --clr-black: #222;
+    --clr-white: #fff;
+    /*******************************************************/
+    /************** custom variables ************ */
+    --banner-background: var(--cadetblue-light);
+  
+     --btn-background: var(--acquamarine-light);
+  
+     --icon-clr: var(--clr-yellow-lighter);
+     --text-color: rgb(100, 98, 100);
+     --nav-background:var(--acquamarine-light);
+    --black:#000000;
+    --black-100: #A0A0A0;
+    --black-200:#808080;
+    --black-300:#606060;
+    --black-400:#404040;
+    --black-500:#202020;
+
+
+}
