@@ -1,4 +1,4 @@
-<nav class="navbar" style="background:#dd0031; ">
+<!-- <nav class="navbar" style="background:#dd0031; ">
   <a href="/" class="navbar__logo" style="color: white;">Angular Template</a>
   <div class="navbar__bars"><i class="fas fa-bars"></i></div>
   <div class="navbar__menu">
@@ -30,12 +30,47 @@
         </li>
       </ul>
     </div>
-    <!-- <a href="/" class="navbar__menu--links">Endpoints</a>
+     <a href="/" class="navbar__menu--links">Endpoints</a>
     <a href="/" class="navbar__menu--links">Customers</a>
-    <a href="/" class="navbar__menu--links">Data Matrices</a> -->
+    <a href="/" class="navbar__menu--links">Data Matrices</a> 
     <button
       style="background: #dd0031;border:3px solid white ;color:white; width: 120px; height: 35px; font-size: 16px;">BUY
       NOW</button>
 
   </div>
-</nav>
+</nav> -->
+
+<mat-toolbar>
+  <button mat-icon-button *ngIf="sidenav.mode ==='over'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf='!sidenav.opened'>menu</mat-icon>
+    <mat-icon *ngIf='sidenav.opened'>close</mat-icon>
+  </button>
+  Angular Template
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened color="primary" #sidenav>
+    <button mat-button class="menu-button">
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard</span>
+    </button>
+    <button mat-button class="menu-button">
+      <mat-icon>assignment</mat-icon>
+      <span>Forms</span>
+    </button>
+    <button mat-button class="menu-button">
+      <mat-icon>table</mat-icon>
+      <span>Table</span>
+    </button>
+    <button mat-button class="menu-button">
+      <mat-icon>trending_up</mat-icon>
+      <span>Chart</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z4">
+      Sidenav content
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
