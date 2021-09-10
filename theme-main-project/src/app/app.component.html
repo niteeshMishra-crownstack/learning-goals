@@ -51,26 +51,58 @@
 
 <mat-sidenav-container>
   <mat-sidenav mode="side" opened color="primary" #sidenav>
-    <button mat-button class="menu-button">
+    <button mat-button class="menu-button" [matMenuTriggerFor]="dashboardMenu">
       <mat-icon>dashboard</mat-icon>
       <span>Dashboard</span>
+      <mat-menu #dashboardMenu="matMenu">
+        <button mat-menu-item>E-Commerce</button>
+        <button mat-menu-item>CRM</button>
+
+
+      </mat-menu>
+
     </button>
-    <button mat-button class="menu-button">
+
+    <button mat-button class="menu-button" [matMenuTriggerFor]="formsMenu">
       <mat-icon>assignment</mat-icon>
       <span>Forms</span>
+      <mat-menu #formsMenu="matMenu">
+        <a [routerLink]="['/bootstrap-form']"> <button mat-menu-item>Bootstrap-Form</button></a>
+        <button mat-menu-item>Extended controls</button>
+        <button mat-menu-item>Sample Layouts</button>
+        <button mat-menu-item>Material Forms</button>
+        <button mat-menu-item>Stepper</button>
+
+      </mat-menu>
     </button>
-    <button mat-button class="menu-button">
+    <button mat-button class="menu-button" [matMenuTriggerFor]="tableMenu">
       <mat-icon>table</mat-icon>
       <span>Table</span>
+      <mat-menu #tableMenu="matMenu">
+        <a [routerLink]="['/regular-table']"> <button mat-menu-item>Regular Table</button></a>
+        <button mat-menu-item>Smart Table</button>
+        <button mat-menu-item>Extended Table</button>
+        <button mat-menu-item>Tables with filters</button>
+
+
+      </mat-menu>
     </button>
-    <button mat-button class="menu-button">
+    <button mat-button class="menu-button" [matMenuTriggerFor]="chartMenu">
       <mat-icon>trending_up</mat-icon>
       <span>Chart</span>
+      <mat-menu #chartMenu="matMenu">
+        <button mat-menu-item>ECharts</button>
+        <button mat-menu-item>Chart Js</button>
+        <button mat-menu-item>Ngx Charts</button>
+
+
+
+      </mat-menu>
     </button>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="content mat-elevation-z4">
-      Sidenav content
+      <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
