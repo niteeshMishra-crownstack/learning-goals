@@ -17,17 +17,17 @@ console.log(document.all[10])
 //Selectors
  console.log(document.getElementById('header-title'))
 var headTag = document.getElementsByTagName('h1')
-headTag.innerText = "Blue"
-console.log(headTag)
+// headTag.innerText = "Blue"
+// console.log(headTag)
 
-document.all[4].textContent="Hello"
+// document.all[4].textContent="Hello"
 
 var headerTitle = document.getElementById('header-title')
 console.log(headerTitle.textContent)
 
-// headerTitle.innerText = "This coming from inner text"
-headerTitle.innerHTML = `<h3>Hello</h3>`
-headerTitle.style.color="purple"
+// // headerTitle.innerText = "This coming from inner text"
+// headerTitle.innerHTML = `<h3>Hello</h3>`
+// headerTitle.style.color="purple"
 var header = document.getElementById('main')
 header.style.borderBottom ="solid 3px red"
 
@@ -153,28 +153,70 @@ container.insertBefore(newDiv,h1)
 
 //DOM EVENTS
 //first way
-var button = document.getElementById('button').addEventListener('click',buttonClick)
+// var button = document.getElementById('button').addEventListener('click',buttonClick)
  
 
-function buttonClick(e)
+// function buttonClick(e)
+// {
+//     // console.log('button clicked')
+
+//     // document.getElementById('header-title').textContent="Title Changed"
+//     // document.querySelector('li').style.backgroundColor='orange'
+//     console.log(e)
+//     console.log(e.target)//you will get the targetted element
+//     console.log(e.target.id)// if you want fetch id of targetted element
+//     console.log(e.target.className)//it will give you all the classes of target element as string
+//     var output = document.getElementById('output')
+//     output.innerHTML = '<h3>'+e.target.id+'</h3>'
+//     console.log(e.type)// it will give you the type of event
+
+//     console.log(e.clientX)//it will give you the mouse position in x-axis from window.
+//     console.log(e.clientY)//it will give you the mouse position in y-axis from window.
+
+//     console.log(e.offsetX)//it will give you the mouse position in x-axis from the element you are inside off.
+
+// }
+
+var button = document.getElementById('button')
+var box = document.getElementById('box')
+
+var itemInput = document.querySelector('input[type="text"]')
+var form  = document.querySelector('form')
+var select = document.querySelector('select')
+
+// itemInput.addEventListener('keydown',runEvent)
+// itemInput.addEventListener('keyup',runEvent)
+// itemInput.addEventListener('keypress',runEvent)
+itemInput.addEventListener('focus',runEvent)
+itemInput.addEventListener('blur',runEvent)
+
+itemInput.addEventListener('cut',runEvent)
+itemInput.addEventListener('paste',runEvent)
+
+// button.addEventListener('click',runEvent)
+// button.addEventListener('dblclick',runEvent)
+// button.addEventListener('mousedown',runEvent)
+// button.addEventListener('mouseup',runEvent)
+
+// box.addEventListener('mouseenter',  runEvent)
+// box.addEventListener('mouseleave',  runEvent)
+// box.addEventListener('mouseover',  runEvent)
+// box.addEventListener('mouseout',  runEvent)
+
+select.addEventListener('change',runEvent)
+form.addEventListener('submit',runEvent)
+
+//Difference between mouse enter and mouseover: Mouse enter works for an element not for its child elenent where
+//where as mouseover will work for child element as well.
+//Same with mouseleave and mouse out
+
+
+function runEvent(e)
 {
-    // console.log('button clicked')
-
-    // document.getElementById('header-title').textContent="Title Changed"
-    // document.querySelector('li').style.backgroundColor='orange'
-    console.log(e)
-    console.log(e.target)//you will get the targetted element
-    console.log(e.target.id)// if you want fetch id of targetted element
-    console.log(e.target.className)//it will give you all the classes of target element as string
-    var output = document.getElementById('output')
-    output.innerHTML = '<h3>'+e.target.id+'</h3>'
-    console.log(e.type)// it will give you the type of event
-
-    console.log(e.clientX)//it will give you the mouse position in x-axis from window.
-    console.log(e.clientY)//it will give you the mouse position in y-axis from window.
-
-    console.log(e.offsetX)//it will give you the mouse position in x-axis from the element you are inside off.
-
+    e.preventDefault()
+    console.log(`event type:` +e.type )
+    console.log(e.target.value)
+    document.getElementById('output').innerHTML = '<h3>'+e.target.value+'</h3>'
 }
 
 
