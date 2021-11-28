@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.scss">
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -64,7 +66,32 @@
             <button class="btn btn-dark btn-block" id="button">Click</button><br>
             <div id="box" style="width: 400px; height: 200px; background-color: #f4f4f4;"></div>
         </div>
+        <a id="myAnchor" href="https://google.com/">Go to google.com</a>
+
+        <p>The preventDefault() method will prevent the link above from following the URL.</p><br><br>
+
+
+        <h1>The stopPropagation() Method</h1>
+
+        <p>Click DIV 1:</p>
+        <div class="outerDiv" onclick="func2()"
+            style="padding: 50px; background: purple; text-align: center; cursor: pointer; color: white;">DIV 2
+            <div style="padding: 50px; background: pink; text-align: center; cursor: pointer; color: white;"
+                class="innerDiv" onclick="func1(event)">
+                DIV 1</div>
+        </div>
+
+        Stop propagation:
+        <input type="checkbox" id="check">
+
+        <p></p>
+
+        <p>Because DIV 1 is inside Div 2, both DIVs get clicked when you click on DIV 1.</p>
+        <p>Check the stop propagation checkbox, and try again.</p>
+        <p>The stopPropagation() method allows you to prevent propagation of the current event.</p>
+
     </div>
+
     <script src="./dom.js"></script>
 </body>
 

@@ -148,7 +148,7 @@ console.log(newDiv)// How to insert it into DOM
 var container = document.querySelector('header .container')
 var h1 = document.querySelector('header h1');
 
-container.insertBefore(newDiv,h1)
+// container.insertBefore(newDiv,h1)
 
 
 //DOM EVENTS
@@ -219,6 +219,169 @@ function runEvent(e)
     document.getElementById('output').innerHTML = '<h3>'+e.target.value+'</h3>'
 }
 
+//DIFFERENCE BETWEEN TARGET AND CURRENT TARGET
+
+//target refers to the DOM element that triggers an event. Otherwise, 
+//currentTarget refers to the DOM element that the event listener is listening on.
+//target  is the element that triggered the event (e.g., the user clicked on)
+//currenttarget is the element that the event listener is attached to.
+ var items = document.getElementById('items')
+
+ items.addEventListener('click', (e)=>
+ {
+     console.log(e.target)
+     //out put : <li class="list-group-item>"</li>
+     console.log(e.currentTarget)
+     //output : <ul id="items" class="list-group"></ul>
+
+ });
+
+
+//DIFFERENCE BETWEEN QUERYSELECTOR AND QUERYSELECTORALL
+
+/* The difference between querySelector() and querySelectorAll() is that querySelector() returns a
+ single object with the first HTML element that matches the 'selectors', but querySelectorAll()
+  returns an array of objects with all the HTML elements that match the 'selectors'. */ 
+
+  //Difference between e.preventDefault() , e.stopPropogation()
+
+ // event.preventDefault() – It stops the browsers default behaviour.
+//  event.stopPropagation() – It prevents the event from propagating (or “bubbling up”) the DOM.
+//The stopPropagation() method prevents propagation of the same event from being called.
+
+//Propagation means bubbling up to parent elements or capturing down to child elements.
+
+document.getElementById("myAnchor").addEventListener("click", function(event){
+  event.preventDefault()
+});
+
+
+function func1(event) {
+  alert("DIV 1");
+  if (document.getElementById("check").checked) {
+    event.stopPropagation();
+  }
+}
+
+function func2() {
+  alert("DIV 2");
+}
+
+
+//********************************************************************************************************************** */
+//SCOPE, CLOSURE & HOISTING IN JAVASCRIPT
+
+//Global Scope
+
+//Any variable declared outside all function, independently that’s a part of global scope.
+
+var x = "variable in global scope";
+function global() {
+    console.log(x); // prints "variable in global scope"
+}
+global();
+
+//LOCAL SCOPE
+
+function local() {
+    var x = "variable in local scope";
+    console.log(x); // prints "variable in local scope"
+}
+local();
+
+//BLOCK SCOPE
+
+function block() {
+    if (true) {
+        let x = "variable in block scope";
+        console.log(x); // prints "variable in block scope" because in this scope, x has value "doughnut"
+    }
+    console.log(x); // prints "variable in global scope" because "let" keyword uses block scoping. x assumes its original value which is "variable in global scope"
+}
+block();
+
+
+var a = 1;
+function seven() {
+    if (true) {
+        var a = 7; //replaced var with let now it will print a=1
+    }
+    console.log(a);//print 7, While resolving a variable, JavaScript starts at the innermost scope and searches outwards. 
+                  //So, when the console.log(a) is encountered, the compiler starts at the innermost scope and searches outwards. 
+                  //In the innermost scope (the mandatory "if" block), a has a value of 7. Thus, 7 is printed on the console.
+
+   
+}
+
+//HOISTING
+
+
+//It is a process through which variable and function declarations are virtually moved to the top of your code. 
+//In JavaScript will process variables declared with “var” before any other code is processed. 
+
+function printAge() {
+    age = 19;
+    console.log("My age is " + age);
+    var age;
+}
+
+printAge();
+
+//Work perfectly fine, even though the declaration of the variable "age" comes after the point when the variable "age" is used.
+// In variable hoisting, JavaScript will interpret the above code as follows,
+
+// function printAge() {
+//     var age; // variable declarations are moved to the top of the code due to hoisting
+//     age = 19;
+//     console.log("My age is " + age);
+// }
+
+//NOTE : An most important here that in Hoisting is that JavaScript only hoists declarations, not initializations. 
+//If a variable is declared and initialized after using it, the value will be undefined.
+
+console.log(num); // Returns undefined
+var num;
+num = 6;
+
+
+
+//CLOSURE
+
+//A closure is a function having access to the parent scope, even after the parent function has closed.
+//Closure in action that is inner function can have access to the outer function variables as well as all the global variables.
+
+const outerFun = (a)=>
+{
+    let b = 10;
+    const innerFun = ()=>
+    {
+        let sum = a+b;
+        console.log(`the sum of two no. is ${sum}`)
+    }
+
+  return  innerFun
+}
+
+ let inner = outerFun(5);
+ console.dir(inner);
+
+ inner()
+ 
+
+ //FALSY VALUE IN JS
+
+ console.log("The 7 falsy values")
+0 ? console.log("truthy") : console.log("falsy") // falsy
+0n ? console.log("truthy") : console.log("falsy") // falsy
+null ? console.log("truthy") : console.log("falsy") // falsy
+undefined ? console.log("truthy") : console.log("falsy") // falsy
+false ? console.log("truthy") : console.log("falsy") // falsy
+NaN ? console.log("truthy") : console.log("falsy") // falsy
+"" ? console.log("truthy") : console.log("falsy") // falsy
+
+//The values null and undefined are loosely equal to each other.
+//NaN is not equal to any other value, not even itself.
+//The other falsy values (0, 0n, false, and "") are all loosely equal.
 
 
 
