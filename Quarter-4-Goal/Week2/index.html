@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body bg-dark text-white text-center">
+                <h2>The JavaScript <i>this</i> Keyword</h2>
+                <p>In this example, <b>this</b> represents the <b>person</b> object.</p>
+                <p>Because the person object "owns" the fullName method.</p>
+                <p id="demo"></p>
+                <button class="btn btn-warning" onclick="this.style.display='none'">Click to Remove Me!</button>
+
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body bg-dark text-white text-center">
+                <h2>Arrow Function</h2>
+                <p>Arrow function allows you to create functions in a cleaner way compared to regular functions.</p>
+                <p id="demo"></p>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
