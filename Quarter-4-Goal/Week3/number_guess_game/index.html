@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <style>
+        #section2 {
+            display: none;
+        }
+
+        #section3 {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container jumbotron myJumbotron">
+        <div id="section1" class=" text-center">
+            <button class="btn btn-warning btn-lg" onclick="generate_number_btn_click()">Generate Random Number</button>
+        </div>
+
+        <div id="section2" class="container">
+            <div class="row mt-5 mb-3">
+                <div class=" text-center mt-5">
+                    <img src="question_mark.gif" alt="imgbjdv" width="200px" height="200px" style="margin-top: 20px;">
+                    <p class="text-danger">Guess the number between 1 to 6 **</p>
+                    <div class="form-group  ">
+                        <input id="input-value" type="text" placeholder="Enter here" class="form-control"
+                            style="width: 30%; margin: auto;">
+                    </div>
+                    <button id="field" class="btn btn-primary btn-sm mt-4 btn-warning"
+                        onclick="check_number()">Check</button>
+                </div><br>
+            </div>
+        </div>
+
+        <div class=" text-center" id="section3">
+
+            <img class="img-fluid" style="width: 260px;"
+                src="https://thumbs.gfycat.com/SecondTartCygnet-size_restricted.gif" alt="">
+            <h3>Generating Number....</h3>
+
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
