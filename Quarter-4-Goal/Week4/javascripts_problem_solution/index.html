@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function setStyle() {
+            // Selecting element
+            var elem = document.getElementById("intro");
+
+            // Appling styles on element
+            elem.style.color = "blue";
+            elem.style.fontSize = "18px";
+            elem.style.fontWeight = "bold";
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+    <!-- javascript code inside html tag -->
+    <button type="button" onclick="alert('Hello World!')">Click</button>
+
+    <p id="intro">This is a paragraph.</p>
+    <button type="button" onclick="setStyle()">Set intro paragraph styles</button>
+    <p id="p2" style="color:red; font-size:20px;">This is another paragraph.</p>
+
+    <button type="button" onclick="insertElement()">Insert Element</button>
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
