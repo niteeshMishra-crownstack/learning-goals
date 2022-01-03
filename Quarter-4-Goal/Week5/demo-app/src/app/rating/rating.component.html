@@ -1,0 +1,28 @@
+<!-- 
+
+<div class="review" *ngFor="let review of reviews">
+    <p class="review-rating" *ngIf="review.rating">
+        <i
+            [class]="(review.rating == 0) ? 'fa fa-asterisk' : (review.rating > 0 && review.rating < 1) ? 'fas fa-asterisk-half-alt' : 'fas fa-asterisk'"></i>
+
+        <i
+            [class]="(review.rating > 1 && review.rating < 2) ? 'fas fa-asterisk-half-alt' : (review.rating >= 2) ? 'fas fa-asterisk' : 'far fa-asterisk'"></i>
+
+        <i
+            [class]="(review.rating > 2 && review.rating < 3) ? 'fas fa-asterisk-half-alt' : (review.rating >= 3) ? 'fas fa-asterisk' : 'far fa-asterisk'"></i>
+
+        <i
+            [class]="(review.rating > 3 && review.rating < 4) ? 'fas fa-asterisk-half-alt' : (review.rating >= 4) ? 'fas fa-asterisk' : 'far fa-asterisk'"></i>
+
+        <i
+            [class]="(review.rating > 4 && review.rating < 5) ? 'fas fa-asterisk-half-alt' : (review.rating >= 5) ? 'fas fa-asterisk' : 'far fa-asterisk'"></i>
+    </p>
+    <p><em>r = {{review.rating}}</em></p>
+    <p class="review-summary">{{ review?.reviewSummary }}</p>
+    <p class="review-feedback">{{ review?.reviewMessage }}</p>
+    <p class="reviewBy">
+        <span class="review-date">{{ (review?.reviewDate ? review?.reviewDate : 1581470956443) | date}}</span>
+        by
+        <span class="review-author">{{ review?.name }}</span>
+    </p>
+</div>  -->

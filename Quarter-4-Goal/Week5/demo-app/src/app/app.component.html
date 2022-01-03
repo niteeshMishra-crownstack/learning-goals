@@ -1,0 +1,261 @@
+<div class="container-fluid text-center bg-info text-white">
+  <!-- style binding -->
+  <h1 [style.backgroundColor]="colorChange ? 'blue':'red'">Angular Basics</h1>
+  <!-- interpolation -->
+  <img class=" img-responsive p-2 m-2" src="{{imageUrl}}" style="width: 200px; height: 200px; border-radius: 50%;" />
+  <!-- class binding -->
+
+  <button class="btn btn-primary" [class.active]="isActive" (click)="submit($event)">Submit</button>
+
+  <!-- In Angular, there is a directive called ngModel to create two way binding between a
+component property and a DOM property in the view. -->
+
+
+
+</div>
+
+<div style="overflow: hidden;">
+  <!-- storing the entered text of an input  in a variable using ngModel directive here userText is a varible in .ts file -->
+  <div class="container-fluid bg-secondary text-white">
+    <h5 class="text-white m-2 p-4">
+      Sending value of input box to .ts file using <mark>ngModel directive</mark> , displaying it to DOM using
+      <mark>interpolation</mark> and
+      binding this value to another input box by <mark>property binding</mark>
+    </h5>
+    <div class="row p-4">
+      <div class="col-md-3 p-1 my-auto">
+        <input class="form-control" type="text" name="" id="" [(ngModel)]="userText">
+      </div>
+      <div class="col-md-3 p-1 my-auto">
+        <button class="btn btn-warning fw-normal" (click)="handleChange()">Submit</button>
+      </div>
+      <div class="col-md-3 p-1 my-auto">
+        <h3>{{userText}}
+        </h3>
+      </div>
+      <div class="col-md-3 p-1 my-auto">
+        <!-- getting value of one input box to another input box using property binding -->
+        <input class="form-control" type="text" [value]="userText">
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid bg-info text-white mt-4 p-4">
+    <h3 class="text-white p-2"> <mark>@HostListener</mark> & <mark>@HostBinding</mark></h3>
+    <h4 class="p-2">@HostListener is a function() decorator that accepts an event name as an argument.When that event
+      gets fired on the host element it calls the associated function . @HostListener let us listen for event on host
+      element or component <br> @HostBinding lets you set the properties on the element or component that hosts the
+      directive. @HostListener
+      and @HostBinding are the concepts of Directives </h4>
+
+    <h4 class="p-2"> For click event there is one @HostListener: <mark>Click</mark> any of the element of the DOM and
+      check console.
+    </h4>
+    <h4 class="p-2">For scroll event there is one @HostListener: <mark>Scroll the page</mark> and check console.</h4>
+    <h4 class="p-2" appElementStyle><mark>Click here</mark> Changing the color of this element using @HostListener as
+      Directive</h4>
+  </div>
+  <div class="container-fluid bg-secondary text-white mt-4 p-4">
+    <h3 class="text-white p-2"> <mark>ElementRef</mark> & <mark>NativeElement</mark></h3>
+    <h4 class="p-2">** ElementRef is a wrapper that wraps a specified DOM element and allows us to work with the DOM, it
+      provides the nativeElement object that exposes all the methods and properties of the native element(all the html
+      element i.e div,span,p,h3 etc..) </h4>
+    <h4 class="p-2">** Elementref is used to access the DOM element and manipulates it. It has
+      the nativeElement property that contains all the properties of the DOM element </h4>
+    <h4 class="p-2">**ElementRef is simply like <mark>document.getElementById("any_id")</mark></h4>
+
+    <div class="row d-flex justify-content-center py-auto">
+      <div class="col-md-1">
+        <button class="btn btn-warning btn btn-lg text-white" (click)="setHtml()"> Set HTML</button>
+      </div>
+      <div class="col-md-4">
+        <div #emptyDiv class="p-4 bg-light text-muted"></div>
+      </div>
+      <div class="col-md-1">
+        <button class="btn btn-warning btn btn-lg text-white" (click)="getHtml()"> Get HTML</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-info text-white mt-4 p-4">
+    <h3 class="text-white p-2"><mark>@ViewChild</mark> & <mark>@ViewChildren</mark></h3>
+    <h4 class="p-2">**To get access to DOM element , child component or directive from parent component we use
+      <mark>@ViewChild Decorator</mark><br><br>
+      NOTE: <mark class="p-0 m-4">@ViewChild returns only the first element of the matching selector/template reference
+        variable</mark>
+    </h4><br>
+    <h4 class="p2">1. **First use of ViewChild :Gettting DOM element using <mark>@ViewChild decorator</mark> &
+      <mark>Template reference
+        variable</mark> type something in the below input box and hit the show-name button
+    </h4>
+    <div class="row d-flex justify-content-center p-1">
+      <div class="col-md-4">
+        <input #firstName class="form-control" type="text" placeholder="Enter any name here">
+      </div>
+      <div class="col-md-4">
+        <input #firstName class="form-control" type="text" placeholder="Enter any name here">
+      </div>
+      <div class="col-md-1">
+        <button class="btn btn-warning btn btn-large" (click)="showName()">Show Name</button>
+      </div>
+    </div>
+
+    <h4 class="p2 mt-3">2. **Second use of @ViewChild : Calling the child-component method in parent-component using
+      <mark>@ViewChild decorator</mark> & <mark>Template reference
+        variable</mark>
+      <div class="d-flex justify-content-center p-2 mt-2">
+        <button class="btn btn-warning btn btn-large font-weight-bold" (click)="callMethodFromChildComponent()">Call
+          child-component method</button>
+      </div>
+    </h4>
+    <h4 class="m-2">** Unlike @ViewChild , the @ViewChildren decorator is used for accessing <mark>multiple</mark>
+      elements
+      . Its return type is <mark>QueryList</mark> </h4><br>
+    <h4 class="m-2">NOTE : <mark>@ViewChildren returns all the element of the matching selector/template reference
+        variable</mark> </h4><br>
+    <h4 class="m-2">**QueryList is just a name for an object that stores a list of items. QueryList will always be
+      updated
+      whenever any child element added,updated, or removed from the HTML DOM tree.</h4>
+
+    <div class="row row d-flex justify-content-center">
+      <div class="col-md-3">
+        <input #inputValue class="form-control" type="text" placeholder="Type something random here">
+      </div>
+      <div class="col-md-3"><input #inputValue class="form-control" type="text"
+          placeholder="Type something random here"></div>
+      <div class="col-md-3"><input #inputValue class="form-control" type="text"
+          placeholder="Type something random here"></div>
+      <div class="col-md-1"><button class="btn btn-warning btn btn-large" (click)="showEnteredValue()">Show
+          Name</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-secondary text-white mt-4">
+    <h3 class="mt-3 p-3">What is <mark class="p-0">static:true or static:false </mark> in @ViewChild </h3>
+    <h4 class="m-3 p-3">Before angular version 9 ngAFterViewInit() was the only way to get
+      element
+      reference.
+      But from angular9 onwards we can set <i>static:true</i> and get the reference of the element in the
+      ngoOnInIt() lifecycle hook as well
+    </h4>
+    <div class="container p-3 ">
+      <div class="row d-flex align-items-center justify-content-center">
+        <div class="col-md-4 bg-dark p-1 mr-1">
+          <h4 class="text-center" #elementA>Element A</h4>
+        </div>
+        <div class="col-md-4 bg-dark p-1">
+          <h4 class="text-center" #elementB> Element B</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-info text-white mt-4">
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="m-3"> ** Capturing the index of iterated item using <mark class="p-0">*ngFor & index as i</mark></h3>
+        <!-- capture the index of iterated item  instead of index as i we can use let list of data, let i=index as well-->
+        <div class="bg-secondary p-1 mb-2 d-flex justify-content-center align-items-center "
+          *ngFor="let list of data; index as i">
+          {{i}}- {{list}}
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h3 class="m-3">** *ngIf & else : Displaying the data conditionally in DOM</h3>
+        <!-- Displaying the data conditionally in DOM  -->
+        <div class="w-50 bg-dark p-1 m-1 d-flex justify-content-center align-items-center">
+          <h6 *ngIf="isLoggedIn; else loggedOut">
+            Welcome user you or logged in
+          </h6><br>
+          <ng-template #loggedOut>
+            <h6>You are logged out</h6>
+          </ng-template><br>
+
+        </div>
+        <button class="btn btn-large btn btn-warning text-white p-1 m-1 " (click)="changeLoggedType()">Change Log
+          Status</button>
+
+        <!-- How to conditionally change text in Angular -->
+        <h5 class="p-1 m-1">{{isLoggedIn?"Great job!!":"Try once again!!"}}</h5>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid bg-secondary text-white  mt-3 p-1">
+    <div class="row">
+      <div class="col-md-4">
+        <h3 class="m-3">** How to use <mark>dropdown</mark> in Angular</h3>
+        <!-- How to use dropdown in Angular -->
+        <div class="p-2 d-flex justify-content-center align-items-center">
+          <select class="btn btn-dark ">
+            <option class=" form-control" value="" *ngFor="let item of dropDownItems">{{item}}</option>
+          </select>
+        </div>
+
+      </div>
+      <div class="col-md-4">
+        <h3 class="m-3">**How to use <mark>ngClass</mark> in Angular</h3>
+        <!-- How to use ngClass in Angular -->
+        <div>
+          <h1 [ngClass]="isColorChanged? 'class1':'class2'">My color is going to change</h1>
+        </div>
+        <div class="d-flex justify-content-center align-items-center"><button (click)="changeColor()"
+            class="btn btn-large btn btn-warning">Change Color</button></div>
+
+      </div>
+      <div class="col-md-4">
+        <h4 class="m-2">**Select contry snd then based on selected country select respective states </h4>
+        <div class="row">
+          <div class="col-md-6">
+            <select class="btn btn-dark" name="" id="" [(ngModel)]="countrySelected" (change)="changedCountry()">
+              <option value="" *ngFor="let country of countries">{{country}}</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <select name="" id="" class="btn btn-dark">
+              <option value="" *ngFor="let state of states">
+                {{state}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid   text-white bg-info">
+    <app-products></app-products>
+  </div>
+  <div class="container-fluid bg-secondary text-white text-center">
+    <!-- taking input value from parent and calling parent component method from child -->
+    <app-child #childComponent [message]="message" (callParent)="callParent()">
+      <!-- How to send html from parent to child component -we can do that with the help of <ng-content> -->
+      <h1>Content of h1 tag from parent component</h1>
+      <p>Content of p tag from parent component</p>
+    </app-child>
+  </div>
+
+  <div class="container-fluid  bg-info text-white">
+    <h3 class="m-1 p-2"> <mark class="p-0 ">ng-container </mark> : is a directive that enable us to group elements in
+      the
+      HTML
+      template , but it does not get rendered in the DOM and it becomes a comment <br> Angular does not allow multiple
+      structural directive on an element and this is where ng-container may come into the picture </h3>
+
+    <h4 class="m-3 p-2">Example: Here I am displaying items of an array with a condition if length of an array greater
+      than 0
+      For looping through array I will use <mark class="p-0">*ngFor</mark> to check length <mark
+        class="p-0">*ngIf</mark>.Now you can not use two structural directive in one single element.One way we can use
+      two nested div for 2 directives but that div would be appended to DOM whether your *ngIf is true or false.Second
+      way using ng-container that will only appended/rendered on DOM only if *ngIF is true. So most recommended things
+      to go with second option for large application.
+    </h4>
+
+    <ng-container *ngIf="items.length>= 0">
+      <h3 class="bg-secondary d-flex align-items-center justify-content-center"
+        *ngFor="let item of items, let i =index">
+        {{i}} --
+        {{item}}</h3>
+    </ng-container>
+  </div>
+
+</div>

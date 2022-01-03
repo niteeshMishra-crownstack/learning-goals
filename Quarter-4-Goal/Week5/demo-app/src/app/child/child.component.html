@@ -1,0 +1,12 @@
+<h3 class="m-3 p-2"> <mark class="p-0">Component Interaction</mark> : </h3>
+<h4>1. **Passing value from parent to child component using <mark>@Input decorator</mark></h4>
+<h1>{{message}}</h1>
+<h4>2. **Calling parent component method in child component using <mark>@Output decorator & EventEmitter()</mark></h4>
+<button (click)="callParent.emit()" class="btn btn-large btn btn-warning text-white">Button from Child
+    Component</button>
+<h4 class="m-2">3. **Passing HTML from parent to child component using <mark class="p-0">ng-content</mark> . This is
+    called
+    <mark class="p-0">content-projection</mark>
+</h4>
+<!-- what does this select="p" does. The only p tag data will render coming from parent component.  -->
+<ng-content select="p"></ng-content>
