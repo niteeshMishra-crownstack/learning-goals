@@ -1,0 +1,63 @@
+.center 
+{
+    display: block;
+    margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.table 
+{
+
+    //  thead tr:first-child th:nth-child(2)::before
+    // {
+    //    content: url('../assets/imgs/Shape.svg');
+    //    position: relative;
+    //    left: -30px;
+    // }
+
+    thead tr  th , td:first-child
+    {
+    font-size: 12px;
+    font-weight: 500;
+    color: #3A3A4D;
+    }
+
+    td 
+    {
+      font-weight: 16px;
+      font-weight: 400;
+      color: #00BFA5;
+    }
+
+   
+
+     thead tr th:nth-of-type(2)
+     {
+       border-top-left-radius: 8px;
+       border-top-right-radius: 8px;
+
+     }
+      tbody tr:last-child td:nth-child(2)
+      {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+      }
+
+      thead tr:first-child th:last-child::after
+      {
+          content: url('../assets/imgs/right-arrow.svg');
+          position: relative;
+          right: -30px;
+       
+      }
+
+ 
+  
+}
+
+.scroll
+{
+  background-color: #00BFA5;
+}
+  

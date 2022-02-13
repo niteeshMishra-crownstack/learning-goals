@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="bg-secondary text-white  mt-2">
+      <h4 class="text-center">ANGULAR CLI COMMANDS AND IMPORTANT --FLAGS</h4>
+      <h5 class="p-1 ">1.To <mark>open</mark> project <mark>automatically</mark> in a browser Tab</h5>
+      <h5 class="border-bottom p-2">
+        <pre class="text-warning bg-dark">
+          <i>serve your project</i>
+          ng serve  <br>
+          <i>serve your project and open in default browser</i>
+          ng serve --o <br>
+          <i>Serve to a different port:</i>
+          ng s --port 5555
+        </pre>
+      </h5>
+      <h5 class="p-1">2.Create <mark>project with routing file</mark> by default</h5>
+      <h5 class="border-bottom p-2">
+        <pre class="text-warning bg-dark">
+        ng new ProjectName --routing
+        </pre>
+      </h5>
+      <h5 class="p-1">3.For <mark>Inline Template/Style</mark> of your component</h5>
+      <h5 class="border-bottom p-2">
+        <pre class="text-warning bg-dark">
+        ng g c my-component --inline-style --inline-template
+        </pre>
+      </h5>
+      <h5 class="p-1">4.If you want to <mark>search something in official documentation of Angular</mark> , You can do
+        this via
+        command line with a simple
+        query</h5>
+      <h5 class="border-bottom p-2">
+        <pre class="text-warning bg-dark">
+        ng doc yourKeyword
+        </pre>
+      </h5>
+      <h5 class="p-1">5.See <mark>which version of the CLI</mark> you’re using:</h5>
+      <h5 class="border-bottom p-2">
+        <pre class="text-warning bg-dark">
+        ng --version
+        </pre>
+      </h5>
+
+      <h5 class="p-1">6.<mark>Updating</mark> the CLI version</h5>
+      <h5 class="border-bottom">
+        <pre class="text-warning bg-dark p-2">
+        npm uninstall -g @angular/cli cache clean
+        npm install -g @angular/cli@latest
+        </pre>
+      </h5>
+      <h5 class="p-1">7.<mark>Generate new</mark>project</h5>
+      <h5 class="border-bottom">
+        <pre class="text-warning bg-dark p-2">
+              ng new my-app
+        </pre>
+      </h5>
+      <h5>Here are few <mark>--flags</mark> you can use</h5>
+      <table border="1" class="table table-dark table-striped">
+        <thead class="thead-light">
+          <tr>
+            <th>--flags</th>
+            <th>what is does</th>
+          </tr>
+        </thead>
+
+
+
+        <tr>
+          <td class="text-warning">--dry-run</td>
+          <td class="text-warning">See which files would be created, but don’t actually do anything.</td>
+        </tr>
+        <tr>
+          <td class="text-warning">--skip-install</td>
+          <td class="text-warning">Don’t npm install, useful when offline or with slow internet.</td>
+        </tr>
+        <tr>
+          <td class="text-warning">--skip-tests</td>
+          <td class="text-warning">Don’t create spec files.</td>
+        </tr>
+        <tr>
+          <td class="text-warning">--skip-git</td>
+          <td class="text-warning">Don’t initialize a git repo.</td>
+        </tr>
+        <tr>
+          <td class="text-warning">--routing</td>
+          <td class="text-warning">Add routing to the app.</td>
+        </tr>
+        <tr>
+          <td class="text-warning">--style</td>
+          <td class="text-warning">Defaults to css, but can be set to scss.</td>
+        </tr>
+        <tr>
+          <td class="text-warning">--inline-style</td>
+          <td class="text-warning">Use inline styles for components instead of separate files.</td>
+        </tr>
+        <tr>
+          <td class="text-warning">--inline-template</td>
+          <td class="text-warning">Use inline templates for components instead of separate files.</td>
+        </tr>
+
+
+      </table>
+
+
+
+
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="bg-secondary text-white mt-2">
+
+      <h4 class="p-2">How an Angular App Work Behind The Scenes — <mark class="p-0">The Angular Flow</mark> The Angular
+        Flow</h4>
+
+      <pre class="text-warning text-bold text-center">
+        <mark class="text-danger text-bold">Angular.json</mark>--> <mark class="text-danger text-bold">Main.ts</mark>--><mark class="text-danger text-bold">App.module.ts</mark>--><mark class="text-danger text-bold">App.component.ts</mark>--><mark class="text-danger text-bold">index.html</mark>--><mark class="text-danger text-bold">App.component.html</mark>           
+        </pre>
+
+      <h5 class="p-2">
+        <mark class="text-danger text-bold">Angular.json</mark>--> <span>ANGULAR.JSON is the file which has various
+          properties and configuration of your Angular project. This is the file which
+          is first referred by the builder to look for all the paths and configurations and to check which is the main
+          file.</span>
+
+        <img src="assets/imgs/angularJson.PNG" alt="pic" class="w-100" height="h-100">
+      </h5>
+      <h5 class="p-2">
+        <mark class="text-danger text-bold">Main.ts</mark>--> <span>This file acts as the entry point of the
+          application. The path/name of the main file can be changed but it
+          should also
+          be changed in angular.json file. After this, main.ts file has a function bootstrapModule(AppModule) which
+          tells the builder to bootstrap the app.</span>
+      </h5>
+      <h5 class="p-2">
+        <mark class="text-danger text-bold">App.Module.ts</mark>--> <span>From the main.ts file, it is very clear that
+          we are bootstrapping the app with AppModule. This AppModule is defined in
+          APP.MODULE.TS file.This is the module, created with the @NgModule decorator, which has declarations of all the
+          components we are creating
+          within the app module so that angular is aware of them. Here, we also have imports array where we can import
+          other
+          modules and use in our app</span><br>
+        <img src="assets/imgs/app-module.PNG" class="center">
+      </h5>
+      <h5 class="p-2">
+        <mark class="text-danger text-bold">App.component.ts</mark>--> <span>From the app.module.ts file above, we can
+          clearly see that the module asks to bootstrap the app component. This app
+          component is in app.component.ts file. This is the file which interacts with the html of the webpage and
+          serves it with
+          the data. The component is made by using @Component decorator which is imported from @angular/core. The
+          component has a
+          selector, which is like a custom html tag which we can use to call that component. It then has template or
+          templateUrl
+          which contains the html of the page to be displayed. It also has the styleUrls array where component specific
+          style
+          sheets can be placed. This is how a component file looks</span>
+
+      </h5>
+      <h5 class="p-2">
+        <mark class="text-danger text-bold">index.html</mark>--> <span>Now, since angular is well aware of the modules,
+          components, styles, scripts etc. which are required to display the
+          page, it’s show time!
+          Here, the index.html file is called. It is found in the src folder of the app. Compiler dynamically adds all
+          the
+          javascript files at the end of this file. Since all the components are now known, the html file calls the root
+          component
+          that is app-root. The root component is defined in app.components.ts which targets app.component.html.</span>
+
+      </h5>
+      <h5 class="p-2">
+        <mark class="text-danger text-bold">app.component.html</mark>--> <span>Now, since angular is well aware of the
+          modules,
+          components, styles, scripts etc. which are required to display the
+          page, it’s show time!
+          Here, the index.html file is called. It is found in the src folder of the app. Compiler dynamically adds all
+          the
+          javascript files at the end of this file. Since all the components are now known, the html file calls the root
+          component
+          that is app-root. The root component is defined in app.components.ts which targets app.component.html.</span>
+
+      </h5>
+
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="bg-secondary text-white mt-2">
+      <h5 class="text-center pt-3"> <mark class=" text-danger font-weight-bold">Angular folder and files</mark>
+      </h5>
+      <p class="p-2 bg-secondary">
+        <mark class=" text-danger font-weight-bold">e2e--></mark> e2e stands for end-to-end testing. This is not for
+        testing your application functionality
+        (it is not for unit testing)
+        rather it is used for testing the user behavior when it is deployed on the production server. That means it will
+        monitor
+        who visits your application, which users log in to your application, how much time they stay in your
+        application, how
+        many pages a user visits within your application, when the user logout from your application, etc. Please have a
+        look at
+        the e2e folder content.
+
+        It is not present inside the main src folder. This is because e2e tests are separate from your application. If
+        you
+        further notice it has its own src folder.
+      </p>
+      <p class="p-2 bg-dark"><mark class=" text-danger font-weight-bold">node_modules</mark>--> This folder contains the
+        packages (folders of the packages)
+        which are installed
+        into your application when you created a
+        project in angular. If you installed any third-party packages then also their folders are going to be stored
+        within this
+        node_modules folder. Later in this course, we will see, when we install bootstrap, jquery like third party
+        libraries,
+        how the bootstrap and JQuery folders are created in this node_modules folder.</p>
+      <p class="p-2 bg-secondary">
+        <mark class=" text-danger font-weight-bold">src folder</mark>-->This is the source folder of our angular
+        application. That means this is the place
+        where we need to put all our
+        application source code. So, every component, service class, modules, everything we need to put in this folder
+        only.
+        Whenever we create an angular project, by default the angular framework creates lots of files folder within the
+        src
+        folder
+      </p>
+      <p class="p-2 bg-dark">
+        <mark class=" text-danger font-weight-bold">app folder --></mark> This is the application folder. Whenever you
+        want to create any component, service,
+        or module, you need to create it
+        within this app folder. Please have a look at the following image which shows the files which are by default
+        created
+        within the app folder when you create an angular application.
+      </p>
+      <p class="p-2 bg-secondary">
+        <mark class=" text-danger font-weight-bold">Asset folder---></mark>The Assets folder can include all extra files
+        and many more things. Example: fonts,
+        images, CSS, JS Script, or any
+        library file. You can put these things inside the assets folder.
+      </p>
+      <p class="p-2 bg-dark">
+        <mark class=" text-danger font-weight-bold">index.html--></mark>This HTML file contains HTML code with the head
+        and body section. It is the starting
+        point of
+        your application or you
+        can say that this is where our angular app bootstraps. If you open it you will find that there are no
+        references to any
+        stylesheet (CSS) nor JS files this is because all dependencies are injected during the build process.
+      </p>
+
+      <p class="p-2 bg-secondary">
+        <mark class=" text-danger font-weight-bold">main.ts---></mark>This is the entry point for our angular
+        application. If you ever worked with programming
+        languages like Java or C or C#,
+        then you can compare this with the main() method of such application.
+      </p>
+      <p class="p-2 bg-dark">
+        <mark class=" text-danger font-weight-bold">pollyfill.ts</mark> Basically polyfills compatible for different
+        browsers especially IE old versions IE8,
+        IE9 and IE10. Angular has new
+        features which written in ES6 and typescript, so polyfills helps to compatible with different browsers.
+        Angular is written in ES6+ language specification. As many of its features are not supported by all the
+        browsers. So by
+        defining them in polyfill it will be compatible in the given browser.
+      </p>
+      <p class="p-2 bg-secondary"><mark class=" text-danger font-weight-bold">Angular.json</mark>-->From angular 6, the
+        angular-cli.json file has been
+        replaced by
+        angular.json. That means if you are working with angular
+        5 or any lower, then you will not find this file instead you will find the angular-cli.json file. It has your
+        application name, version, and scripts . The
+        package.json is simply a
+        file that contains mainly information about the application and its version and all
+        packages and dependencies it needs to make the application working
+      </p>
+      <p class="p-2 bg-dark">
+        <mark class=" text-danger font-weight-bold">Package.json</mark>This file is mandatory for every npm project. It
+        contains basic information regarding
+        the project (name, description,
+        license, etc), commands which can be used, dependencies – these are packages required by the application to work
+        correctly, and dependencies – again the list of packages which are required for application however only during
+        the
+        development phase i.e. we need Angular CLI only during development to build a final package however for
+        production we
+        don’t use it anymore.
+      </p>
+      <p class="p-2 bg-secondary">
+        <mark class=" text-danger font-weight-bold">package-lock.json:</mark>The package-lock.json is automatically
+        generated for those operations where npm
+        modifies either the node_modules tree or
+        package.json. In other words, the package.lock.json is generated after an npm install.
+
+        package-lock.json is automatically generated for any operations where you installed any node modules package to
+        your
+        project or npm modifies either the node_modules folder, or you change something in your package.json file.
+
+        so for example you install one third party module using npm install. and added module version in package.json
+        file. the
+        same will be also generated in package-lock.json.
+
+      </p>
+      <p class="p-2 bg-dark">
+        <mark class=" text-danger font-weight-bold">.editorconfig file:--></mark>This file is basically used to set up
+        the team environment. In real-time,
+        many
+        developers may work on a single project.
+        And each developer may follow different coding standards to declare variables, classes, style, size of each
+        character,
+        length, etc. But in the end, we need to merge the code of each developer to produce the final product. At that
+        time, it
+        may produce some error or messy code as each developer having different coding standards. In order to solve
+        this
+        problem, the editorconfig file is used where the standard rules are defined which needs to be followed by the
+        developers
+        in teamwork.
+      </p>
+
+      <p class="p-2 bg-secondary">
+        <mark class=" text-danger font-weight-bold">tsconfig.json</mark>The presence of a tsconfig.json file in a
+        directory indicates that the directory is
+        the root of a TypeScript project.
+        The tsconfig.json file specifies the root files and the compiler options required to compile the project.
+      </p>
+      <p class="p-2 bg-dark">
+        <mark class=" text-danger font-weight-bold">README.md file:</mark>README is the file that contains the
+        description or description of the project which
+        we would like to give to the
+        end-users so that they can start using our application in a great manner. This file contains the basic
+        documentation for
+        your project, also contains some pre-filled CLI command information.
+      </p>
+
+    </div>
+
+    <div class="container-fluid">
+      <div class="bg-secondary text-white mt-2">
+        <div class="p-1">
+          <h3 class="text-warning">Component:</h3>
+          <span>A component is nothing but a plain TypeScript class Like any other
+            class, it can have properties and methods. The
+            properties hold the data for the view and the methods implement the behavior of a view,like what should
+            happen
+            if I
+            click a button</span>
+          <h5 class="text-warning">Building blocks of angular components</h5>
+          <ul>
+            <li>Template</li>
+            <li>Class</li>
+            <li>Metadata</li>
+          </ul>
+
+          <h5 class="text-warning">Template:</h5>
+          <h6>The template defines the layout and content of the View. Without
+            the
+            template, there is nothing for Angular to render to
+            the DOM. <br>
+
+            The Templates are nothing but HTML codes along with the Angular specific special HTML markups ( knows as
+            the Angular
+            Template Syntax). <br>
+
+            You can add Angular directives , Angular Pipes & Other Angular Components on the template.</h6>
+
+          <h5 class="text-warning">Class</h5>
+          <h6>The Class provides the data & logic to the View. It contains the JavaScript code associated with Template
+            (View). We use
+            TypeScript to create the class, but you can also use JavaScript directly in the class. <br>
+
+            Class Contains the Properties & Methods. The Properties of a class can be bind to the view using Data
+            Binding.</h6>
+          <h5 class="text-warning">Metadata</h5>
+          <h6>Metadata Provides additional information about the component to the Angular. Angular uses this information
+            to process
+            the class. We use the @Component decorator to provide the Metadata to the Component.</h6>
+          <h5 class="text-warning">@Component decorator</h5>
+          <h6>A decorator is a function that adds metadata to class, its methods & to its properties. The Components are
+            defined with
+            a @Component class decorator. <br>
+
+            When Angular sees a class with @Component decorator, it treats the class as Component.</h6>
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="bg-secondary text-white mt-2">
+        <div class="p-1">
+          <h3 class="text-warning">
+            Modules
+          </h3>
+          <h6>The Angular module (also known as ngModule) help us to organize the application parts into cohesive blocks
+            of
+            functionality. Each block is focused on providing a specific functionality or a feature.</h6>
+
+          <h6 class="text-warning">@NgModule(): <span class="text-white">The NgModule() decorator is a function that
+              takes a single metadata object, whose properties describe the module. The
+              most important properties are as follows.</span></h6>
+          <img src="../assets/imgs/module.PNG" alt="">
+
+          <h5 class="text-warning"><i>Declaration Array : <span class="text-white">This is where components, directives,
+                and pipes that
+                belong to this Module
+                are declared.</span></i></h5>
+          <h5 class="text-warning"><i>Providers Array : <span class="text-white">The Services, which you want to add to
+                the global
+                collection of services are
+                added here. The services are then available
+                for injection via dependency injection. <br>Remember : Services are global in scope. Services added to
+                Providers array are available for injection in the entire application</span></i></h5>
+          <h5 class="text-warning"><i>Imports Array : <span class="text-white">If you want this ngModule require any
+                feature or
+                functionality, then those
+                modules need to be imported here. Any
+                components, directives, and pipes that are defined and exported in that module can be used in this
+                module.</span></i></h5>
+          <h5 class="text-warning"><i>Export Array : <span class="text-white">If you want other modules to use the
+                component, pipes,
+                directives of this
+                NgModule, then those must be specified here.</span></i></h5>
+          <h5 class="text-warning"><i>EntryComponents Array : <span class="text-white">The components that are
+                dynamically loaded needs to
+                be declared
+                here.</span></i></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
