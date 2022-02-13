@@ -10,6 +10,7 @@ import { ProductsComponent } from './products/products.component';
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'demo-app';
   isActive = true;
+  todaysDate;
   colorChange = true;
   imageUrl = "https://picsum.photos/200/300";
   theHtmlString = "<h1>I am h1 <h2>I am h2 </h2></h1>"
@@ -32,9 +33,13 @@ export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('elementA', { static: true }) elementA: ElementRef;
   @ViewChild('elementB', { static: false }) elementB: ElementRef;
 
+
+
   constructor() {
+    this.todaysDate = new Date()
 
   }
+
   ngOnInit() {
     this.elementA.nativeElement.innerHTML = "value of a from ngOnInIt"
     this.elementB.nativeElement.innerHTML = "value of b from ngOnInIt"

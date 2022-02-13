@@ -5,7 +5,8 @@
   <img class=" img-responsive p-2 m-2" src="{{imageUrl}}" style="width: 200px; height: 200px; border-radius: 50%;" />
   <!-- class binding -->
 
-  <button class="btn btn-primary" [class.active]="isActive" (click)="submit($event)">Submit</button>
+  <button class="btn btn-primary" [class.active]="isActive" (click)="submit($event)"> <i
+      class="glyphicon glyphicon-search"></i>Submit</button>
 
   <!-- In Angular, there is a directive called ngModel to create two way binding between a
 component property and a DOM property in the view. -->
@@ -78,7 +79,8 @@ component property and a DOM property in the view. -->
 
   <div class="container-fluid bg-info text-white mt-4 p-4">
     <h3 class="text-white p-2"><mark>@ViewChild</mark> & <mark>@ViewChildren</mark></h3>
-    <h4 class="p-2">**To get access to DOM element , child component or directive from parent component we use
+    <h4 class="p-2">**To get access to DOM element , child component or directive from parent component we
+      use
       <mark>@ViewChild Decorator</mark><br><br>
       NOTE: <mark class="p-0 m-4">@ViewChild returns only the first element of the matching selector/template reference
         variable</mark>
@@ -251,11 +253,21 @@ component property and a DOM property in the view. -->
     </h4>
 
     <ng-container *ngIf="items.length>= 0">
-      <h3 class="bg-secondary d-flex align-items-center justify-content-center"
+      <h3 class="bg-secondary d-flex align-items-center justify-content-center "
         *ngFor="let item of items, let i =index">
         {{i}} --
         {{item}}</h3>
     </ng-container>
   </div>
 
+  <h1>Date pipe
+    <b>without date pipe : </b>{{todaysDate}} <br>
+    <b>date pipe : </b>{{todaysDate|date}} <br>
+    <b>medium date : </b>{{todaysDate |date:"medium"}} <br>
+    <b>short date : </b>{{todaysDate|date:"shortDate"}} <br>
+    <b>fullDate date : </b>{{todaysDate|date:"fullDate"}} <br>
+    <b>dd-mm-yy format : </b>{{todaysDate|date:"dd-mm-yyyy"}} <br>
+    <b>dd-mm-yy HH:mm format : </b>{{todaysDate|date:"dd-mm-yyyy HH:mm"}} <br>
+
+  </h1>
 </div>
