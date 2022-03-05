@@ -1,0 +1,187 @@
+<div class="container-fluid bg-dark text-white">
+  <h3 class="text-center">Data Binding</h3>
+  <h6>The way through which a component class and a HTML DOM (template) can interact with each other is called
+    <mark>data binding.</mark> <br>In Angular there are two types of data binding <br>
+    <ul class="bg-secondary text-white">
+      <li>One way binding</li>
+      <li>Two way data binding</li>
+    </ul>
+  </h6>
+  <h6><mark>One way Binding</mark>is a one-way interaction between component and its template. If you perform any
+    changes in your component, then it will
+    reflect the HTML elements.You can achieve one way binding by these ways</h6>
+
+  <h6> <mark>String Interpolation</mark>(FROM COMPONENT TO VIEW) :In Angular, Interpolation is used to display data from
+    component to view
+    (DOM). It is
+    denoted by the expression of double closed curly braces
+    and also known as mustache syntax </h6>
+  <p><strong><i>{{text}}</i></strong> </p> <br>
+  <h6>
+    <mark>Property Binding</mark> Property binding is an example of one-way databinding where the data is transferred
+    from the component to the view.
+
+    The main advantage of property binding is that it facilitates you to control elements property. Every HTML has some
+    its own property for example button element has disabled property, img has src , anchor(a) has href, input has value
+    etc. <br>
+    The Property binding allows us to bind HTML element property to a property in the component. Whenever the value of
+    the <br>
+    component changes, the Angular updates the element property in the View. You can set the properties such as class,
+    href,
+    src, textContent, etc using property binding
+  </h6>
+  <div class="bg-secondary p-2 ">
+    <h6>Property binding example</h6>
+    <p> 1..Rendering the image using [src] ="imgURl" </p>
+    <img [src]="imgURl" alt="">
+    <p>2..Redirecting to google.com using [href]="siteUrl"</p>
+    <a [href]="siteUrl" class="text-warning">Go To Google</a>
+    <p>3..Input tag value [value]="initialText"</p>
+    <input type="text" class="form-control w-25" [value]="initialText">
+  </div>
+
+  <h6>
+    <mark>Event Binding</mark>To bind to an event you use the Angular event binding syntax. This syntax consists of a
+    target event name within
+    parentheses to the left of an equal sign, and a quoted template statement to the right
+  </h6>
+
+  <div class="bg-secondary p-2">
+    <h6>Event binding example</h6>
+    <p>1. Show a alert msg on click event (click)="show()"</p>
+    <button class="btn btn-warning" (click)="show()" [disabled]="flag">Show</button>
+    <p>2. Disable a button after click [disable]="flag"</p>
+    <p>3. Update the username (input)="updateUsername($event)</p>
+    <input type="text" class="form-control w-25" (input)="updateUsername($event)">
+  </div><br> <br>
+
+  <h6><mark>Two way data Binding</mark> Data flow from component class two view and view to component.In Angular ngModel
+    directive is used for two-way bindings</h6>
+  <div class="bg-secondary p-2">
+    <h6>Two binding example</h6>
+    <input type="text" class="form-control w-25" [(ngModel)]="empName">
+    <p>Employee name you have entered : {{empName}}</p>
+    <input type="text" class="form-control w-25" [value]="empName"
+      placeholder="you will get value here once entered on above input field">
+  </div>
+  <br>
+  <h6>
+    <mark>Component Interaction</mark>Angular is all about components that have to interact with one another. It
+    provides multiple ways to pass on the data
+    from one component to another component
+  </h6>
+  <div class="bg-info text-white">
+    <p class="text-center">
+      child component rendering here
+    </p>
+    <p>Message: {{ message }}</p>
+    <p class="text-warning font-weight-bold">Data comming from child is ::{{dataFromChild}}</p>
+    <app-child [data]="data" [childMessage]="parentMessage" (messageEvent)="receiveMessage($event)"></app-child>
+  </div>
+
+  <div class="container-fluid bg-secondary text-white mt-4 p-4">
+    <h3 class="text-white p-2"> <mark>ElementRef</mark> & <mark>NativeElement</mark></h3>
+    <h4 class="p-2">** ElementRef is a wrapper that wraps a specified DOM element and allows us to work with the DOM, it
+      provides the nativeElement object that exposes all the methods and properties of the native element(all the html
+      element i.e div,span,p,h3 etc..) </h4>
+    <h4 class="p-2">** Elementref is used to access the DOM element and manipulates it. It has
+      the nativeElement property that contains all the properties of the DOM element </h4>
+    <h4 class="p-2">**ElementRef is simply like <mark>document.getElementById("any_id")</mark></h4>
+
+    <div class="row d-flex justify-content-center py-auto">
+      <div class="col-md-2">
+        <button class="btn btn-warning  text-white" (click)="setHtml()"> Set HTML</button>
+      </div>
+      <div class="col-md-4">
+        <div #emptyDiv class="p-4 bg-light text-muted"></div>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-warning  text-white" (click)="getHtml()"> Get HTML</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-info text-white mt-4 p-4">
+    <h3 class="text-white p-2"><mark>@ViewChild</mark> & <mark>@ViewChildren</mark></h3>
+    <h4 class="p-2">**To get access to DOM element , child component or directive from parent component we
+      use
+      <small><mark>@ViewChild Decorator</mark></small>
+      NOTE: <small><mark class="p-0 m-4">@ViewChild returns only the first element of the matching selector/template
+          reference
+          variable</mark></small>
+    </h4>
+    <h4 class="p2">1. **First use of ViewChild :Gettting DOM element using <small><mark>@ViewChild
+          decorator</mark></small> &
+      <small><mark>Template reference
+          variable</mark></small> type something in the below input box and hit the show-name button
+    </h4>
+    <div class="row d-flex justify-content-center p-1">
+      <div class="col-md-4">
+        <input #firstName class="form-control" type="text" placeholder="Enter any name here">
+      </div>
+      <div class="col-md-4">
+        <input #firstName class="form-control" type="text" placeholder="Enter any name here">
+      </div>
+      <div class="col-md-1">
+        <button class="btn btn-warning btn btn-large" (click)="showName()">Show Name</button>
+      </div>
+    </div>
+
+    <h4 class="p2 mt-3">2. **Second use of @ViewChild : Calling the child-component method in parent-component using
+      <small><mark>@ViewChild decorator</mark></small> & <small><mark>Template reference
+          variable</mark></small>
+      <div class="d-flex justify-content-center p-2 mt-2">
+        <button class="btn btn-warning btn btn-large font-weight-bold" (click)="callMethodFromChildComponent()">Call
+          child-component method</button>
+      </div>
+    </h4>
+    <h4 class="m-2">** Unlike @ViewChild , the @ViewChildren decorator is used for accessing
+      <small><mark>multiple</mark></small>
+      elements
+      . Its return type is <small><mark>QueryList</mark></small>
+    </h4>
+    <h4 class="m-2">NOTE : <small><mark>@ViewChildren returns all the element of the matching selector/template
+          reference
+          variable</mark></small> </h4>
+    <h4 class="m-2">**QueryList is just a name for an object that stores a list of items. QueryList will always be
+      updated
+      whenever any child element added,updated, or removed from the HTML DOM tree.</h4>
+
+    <div class="row row d-flex justify-content-center">
+      <div class="col-md-3">
+        <input #inputValue class="form-control" type="text" placeholder="Type something random here">
+      </div>
+      <div class="col-md-3"><input #inputValue class="form-control" type="text"
+          placeholder="Type something random here">
+      </div>
+      <div class="col-md-3"><input #inputValue class="form-control" type="text"
+          placeholder="Type something random here">
+      </div>
+      <div class="col-md-1"><button class="btn btn-warning btn btn-large" (click)="showEnteredValue()">Show
+          Name</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-secondary text-white mt-4">
+    <h3 class="mt-3 p-3">What is <small><mark class="p-0">static:true or static:false </mark></small> in @ViewChild
+    </h3>
+    <h4 class="m-3 p-3">Before angular version 9 ngAFterViewInit() was the only way to get
+      element
+      reference.
+      But from angular9 onwards we can set <i>static:true</i> and get the reference of the element in the
+      ngoOnInIt() lifecycle hook as well
+    </h4>
+    <div class="container p-3 ">
+      <div class="row d-flex align-items-center justify-content-center">
+        <div class="col-md-4 bg-dark p-1 mr-1">
+          <h4 class="text-center" #elementA>Element A</h4>
+        </div>
+        <div class="col-md-4 bg-dark p-1">
+          <h4 class="text-center" #elementB> Element B</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

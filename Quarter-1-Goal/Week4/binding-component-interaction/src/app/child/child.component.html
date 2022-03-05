@@ -1,0 +1,16 @@
+<div class="containetr-fluid">
+
+    <div class=" text-white p-2">
+        <p>{{childMessage}}</p>
+        <p>this ul data is also coming from parent</p>
+        <ul>
+            <li *ngFor="let data of data">
+                {{data}}
+            </li>
+        </ul>
+
+        <h3>Hi, I am child component. Please click the button below to pass my data to 'app' component</h3>
+
+        <button class="btn btn-warning" (click)="sendData()">click here</button>
+    </div>
+</div>
