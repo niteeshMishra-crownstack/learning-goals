@@ -1,0 +1,308 @@
+<div class="continer-fluid">
+  <div class="bg-info text-white p-2">
+    <h3 class="text-center">Reactive Forms</h3>
+    <p>To create a reactive form, Angular provides classes such as <small>
+        <mark class="text-danger">FormControl
+          FormGroup,
+
+          FormArray
+
+          FormBuilder</mark>
+      </small> etc.</p>
+
+    <h3 class="text-warning">Steps::</h3>
+    <h4 class="text-warning">1. Import ReactiveFormsModule</h4>
+    <p><small>
+        <mark class="text-danger">ReactiveFormsModule</mark> provides the required classes and directive to create
+        reactive form.
+      </small></p>
+    <h4 class="text-warning"> 2. Create Reactive Form</h4>
+    <p>Find some Angular classes that are used in creating reactive form</p>
+    <p><strong>FormControl:</strong>Tracks the value and validation state of a <small>
+        <mark class="text-danger">FormControl</mark>
+      </small></p>
+    <p><strong>FormGroup:</strong>Tracks the value and validity state of a <small>
+        <mark class="text-danger">group of FormControl</mark>
+      </small></p>
+    <p><strong>FormArray:</strong>Tracks the value and validity state of array of <small>
+        <mark class="text-danger">FormControl, FormGroup and FormArray</mark>
+      </small>.
+    </p>
+    <p><strong>FormBuilder:</strong>Creates a big reactive form with minimum code in Angular. <small>
+        <mark class="text-danger">FormBuilder</mark>
+      </small> has methods as
+      <small>
+        <mark class="text-danger">group()</mark>
+      </small>,
+      <small>
+        <mark class="text-danger">control()</mark>
+      </small>, and
+      <small>
+        <mark class="text-danger">array()</mark>
+      </small>
+      that
+      returns
+      <small>
+        <mark class="text-danger">FormGroup</mark>
+      </small> ,
+      <small>
+        <mark class="text-danger">FormControl</mark>
+      </small> and
+      <small>
+        <mark class="text-danger">FormArray</mark>
+      </small>
+      respectively.
+    </p>
+
+    <h4 class="text-warning"> 2.1 Form-Control</h4>
+    <p><small>
+        <mark class="text-danger">FormControl</mark>
+      </small>
+      tracks the value and validation state of a form control. For every form control such as text, checkbox,
+      radio button we need to create an instance of
+
+      <small>
+        <mark class="text-danger">FormControl</mark>
+      </small>
+      in our class.
+    </p>
+    <h4 class="text-warning"> 2.2 Form-Group</h4>
+    <p>
+      <small>
+        <mark class="text-danger">FormGroup</mark>
+      </small>
+      tracks the value and validity state of a group of <small>
+        <mark class="text-danger">FormControl</mark>
+      </small> . To use it, create an instance of <small>
+        <mark class="text-danger">FormGroup</mark>
+      </small> with
+      the instances of <small>
+        <mark class="text-danger">FormControl</mark>
+      </small> .
+    </p>
+
+    <img src="../assets/images/user-formgroup.PNG" class="w-100" alt=""><br> <br>
+    <p> In the above code <small>
+        <mark>age</mark>
+      </small> form control will be pre-populated with the value 20.
+      Now we create a form element in our HTML template. The selector of <small>
+        <mark class="text-danger">FormGroupDirective is [formGroup]</mark>
+      </small>. We will bind
+      <small>
+        <mark class="text-danger">FormGroup</mark>
+      </small> instance <small>
+        <mark class="text-danger">userForm</mark>
+      </small> with the selector <small>
+        <mark class="text-danger">[formGroup]</mark>
+      </small> and <small>
+        <mark class="text-danger">FormControl</mark>
+      </small> instances are bound to form control using
+      <small>
+        <mark class="text-danger">FormControlName directive</mark>
+      </small> i.e. formControlName. Find the HTML code.
+
+
+    </p>
+    <img src="../assets/images/user-form.PNG" class="w-100" alt=""> <br> <br>
+    <p>When we click on submit button, form will be submitted and ngSubmit will call our method onFormSubmit. Now create
+      a
+      method that will be called when form is submitted.</p>
+    <img src="../assets/images/ngSubmit.PNG" class="w-100" alt=""> <br> <br>
+    <p> <small>
+        <mark class="text-danger">FormGroup</mark>
+      </small> provides <small>
+        <mark class="text-danger">setValue()</mark>
+      </small> and <small>
+        <mark class="text-danger">patchValue()</mark>
+      </small> and both are used to set values to <small>
+        <mark class="text-danger">FormGroup</mark>
+      </small> instance at run time.
+      The
+      difference between them is that when we use <small>
+        <mark class="text-danger">setValue()</mark>
+      </small> we have to set all form controls in our <small>
+        <mark class="text-danger">FormGroup</mark>
+      </small> and when
+      we
+      use <small>
+        <mark class="text-danger">patchValue()</mark>
+      </small> then selected form control can be set. Find the example.</p>
+
+    <p>1. Using
+      <small>
+        <mark class="text-danger">setValue()</mark>
+      </small>
+    </p>
+    <img src="../assets/images/setvalue.PNG" class="w-100" alt=""> <br> <br>
+    <mark class="text-danger"> NOTE:: It is necessary to mention all from controls in setValue() otherwise it will throw
+      error.</mark> <br> <br>
+
+    <p>1. Using
+      <small>
+        <mark class="text-danger">patchValue()</mark>
+      </small>
+    </p>
+    <img src="../assets/images/patchValue.PNG" class="w-100" alt=""> <br> <br>
+    <mark class="text-danger"> NOTE:: When we use patchValue() then it is not necessary to mention all form
+      controls.</mark>
+    <P class="font-weight-bolder">Now to get the value of form control named as name after form submit, we need to write
+      the code as below.</P>
+    <P><mark class="text-danger">
+        this.userForm.get('name').value
+      </mark></P>
+    <p class="font-weight-bolder">If we want to get all values of the form then we can write code as given below.</p>
+    <p>
+      <mark class="text-danger">
+        this.userForm.value
+      </mark>
+    </p>
+    <p>To reset the form we need to call <small>
+        <mark class="text-danger"> reset()</mark>
+      </small> method on FormGroup instance.</p>
+    <img src="../assets/images/resetForm.PNG" class="w-100" alt="">
+    <h4 class="text-warning">Form-Builder</h4>
+    <p> <small>
+        <mark class="text-danger">FormBuilder</mark>
+      </small> creates reactive form with minimum code using <small>
+        <mark class="text-danger">FormGroup,</mark>
+      </small> <small>
+        <mark class="text-danger">FormControl</mark>
+      </small> and <small>
+        <mark class="text-danger">FormArray</mark>
+      </small> . The FormBuilder has
+      following methods.</p>
+    <strong>group(): Creates</strong><small>
+      <mark class="text-danger">FormGroup</mark>
+    </small><br><br>
+    <strong>control(): Creates</strong><small>
+      <mark class="text-danger">FormControl</mark>
+    </small><br><br>
+    <strong>array(): Creates</strong><small>
+      <mark class="text-danger">FormArray</mark>
+    </small> <br>
+
+    <p>Find the sample example to create a form with <small>
+        <mark class="text-danger">FormBuilder</mark>
+      </small> using its <small>
+        <mark class="text-danger">group()</mark>
+      </small> method.</p>
+    <img src="../assets/images/formBuilder.PNG" class="w-100" alt=""> <br> <br>
+    <p>Find the code in HTML template.</p>
+    <img src="../assets/images/form-builder-html.PNG" class="w-100" alt="">
+  </div>
+
+
+</div>
+<div class="jumbotron mt-3">
+  <h3 class="text-center">Contacts</h3>
+  <hr>
+  <div class="card" [formGroup]="form">
+    <div class="card-header">
+      <label for="" class="text-primary">User Contacts</label>
+    </div>
+    <div class="card-body">
+      <h5>User Info</h5>
+      <div class="row">
+        <div class="col-md-2">First Name</div>
+        <div class="col-md-4">
+          <input formControlName="fName" type="text" class="form-control">
+          <small class="text-danger"
+            *ngIf="formControls.fName.errors && formControls.fName.errors.required && (formControls.fName.touched || !formControls.fName.pristine) ">First
+            Name is required</small>
+        </div>
+        <div class="col-md-2">Last Name</div>
+        <div class="col-md-4">
+          <input formControlName="lName" type="text" class="form-control">
+          <small class="text-danger"
+            *ngIf="formControls.lName.errors && formControls.lName.errors.required && (formControls.lName.touched || !formControls.lName.pristine) ">Last
+            Name is required</small>
+        </div>
+      </div>
+      <h5>Address</h5>
+      <hr>
+
+      <ng-container formGroupName="addresses">
+        <div class="row">
+          <div class="col-md-2">Address 1</div>
+          <div class="col-md-4">
+            <input formControlName="address1" type="text" class="form-control">
+          </div>
+          <div class="col-md-2">Address 2</div>
+          <div class="col-md-4">
+            <input formControlName="address2" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-2">State</div>
+          <div class="col-md-4">
+            <input formControlName="state" type="text" class="form-control">
+            <small class="text-danger"
+              *ngIf="addressFormControl.state.errors && addressFormControl.state.errors.required && (addressFormControl.state.touched || !addressFormControl.state.pristine)">State
+              is required</small>
+          </div>
+
+          <div class="col-md-2">Country</div>
+          <div class="col-md-4">
+            <input formControlName="country" type="text" class="form-control">
+            <small class="text-danger"
+              *ngIf="addressFormControl.country.errors && addressFormControl.country.errors.required && (addressFormControl.country.touched || !formControls.addresses['controls'].country.pristine)">Country
+              is required</small>
+          </div>
+        </div>
+      </ng-container>
+
+      <h5>Contacts</h5>
+      <hr>
+
+      <ng-container formArrayName="contacts" *ngFor="let item of contacts.controls; let i=index">
+        <b>contact {{i+1}}</b>
+        <div class="row mt-2" [formGroupName]="i">
+          <div class="col-md-2">Phone Number</div>
+          <div class="col-md-3">
+            <input formControlName="phone" type="text" class="form-control">
+            <small class="text-danger"
+              *ngIf="formControls.contacts.controls[i].controls.phone.errors &&  formControls.contacts.controls[i].controls.phone.errors.required && (formControls.contacts.controls[i].controls.phone.touched || !formControls.contacts.controls[i].controls.phone.pristine)">Phone
+              Number is required</small>
+            <small class="text-danger"
+              *ngIf="formControls.contacts.controls[i].controls.phone.errors &&  formControls.contacts.controls[i].controls.phone.errors.minlength && (formControls.contacts.controls[i].controls.phone.touched || !formControls.contacts.controls[i].controls.phone.pristine)">Phone
+              number should have atleast 10 digits
+            </small>
+
+          </div>
+          <div class="col-md-2">Email</div>
+          <div class="col-md-3">
+            <input formControlName="email" type="text" class="form-control">
+            <small class="text-danger"
+              *ngIf="formControls.contacts.controls[i].controls.email.errors &&  formControls.contacts.controls[i].controls.email.errors.required && (formControls.contacts.controls[i].controls.email.touched || !formControls.contacts.controls[i].controls.email.pristine)">Email
+              is required</small>
+            <small class="text-danger"
+              *ngIf="formControls.contacts.controls[i].controls.email.errors &&  formControls.contacts.controls[i].controls.email.errors.pattern && (formControls.contacts.controls[i].controls.email.touched || !formControls.contacts.controls[i].controls.email.pristine)">Enter
+              valid email
+            </small>
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-outline-danger ml-3" (click)="removeContact(i)"> &times; </button>
+          </div>
+        </div>
+      </ng-container>
+      <button class="btn btn-outline-primary" (click)="addNewContacts()">Add New Contacts</button>
+    </div>
+
+    <div class="card-footer text-center">
+      <button (click)="onSubmit()" [disabled]="form.invalid" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+
+  <div class="card mt-2">
+    <div class="card-header">
+      Result
+    </div>
+    <div class="card-body">
+      <code>
+          <pre>
+            {{result|json}}
+          </pre>
+        </code>
+    </div>
+  </div>
+</div>
