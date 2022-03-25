@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <ul class="navbar navbar-dark">
+    <li class="nav-item-active">
+      <a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/" class="nav-link">Home</a>
+    </li>
+    <li class="nav-item">
+      <a routerLinkActive="active" routerLink="/customer" class="nav-link">Customers</a>
+    </li>
+    <!-- here 1 and niteesh are route parameter -->
+    <li class="nav-item">
+
+      <a routerLinkActive="active" [routerLink]="['/customer',1,'niteesh']" class="nav-link">Customers with route
+        parameters</a>
+    </li>
+    <li class="nav-item">
+      <a routerLinkActive="active" [routerLink]="['/product']" class="nav-link">Products</a>
+    </li>
+  </ul>
+
+  <button class="btn btn-info" (click)="viewProduct()">View Products</button> <br> <br>
+  <button class="btn btn-info" (click)="sendQueryParams()">send query params to product component</button>
+  <router-outlet></router-outlet>
+</div>
